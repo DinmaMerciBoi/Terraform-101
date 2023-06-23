@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Installing Vault"
+apt -y update
+apt install unzip -y
+curl -o /tmp/vault.zip ${VAULT_ZIP}
+unzip -o /tmp/vault.zip -d /usr/local/bin/
+chmod 0755 /usr/local/bin/vault
+vault server -dev -dev-root-token-id="root" -dev-listen-address="0.0.0.0:8200"
